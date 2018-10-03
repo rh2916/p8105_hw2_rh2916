@@ -1,0 +1,18 @@
+---
+title: "p8105_hw2_rh2916"
+author: "Rui Huang"
+date: "September 29, 2018"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(janitor)
+library(skimr)
+library(dplyr)
+library(readxl)
+```
+
+
+
