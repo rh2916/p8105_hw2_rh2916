@@ -149,6 +149,8 @@ The median number of sports balls in a dumpster in 2016 is `r median(subset(prob
 
 ## Problem 3
 
+## Read and manipulate data
+
 ```{r}
 library(p8105.datasets)
 data(brfss_smart2010)
@@ -168,5 +170,28 @@ problem3_data =
   )
 ```
 
+## How many unique locations?  What state is observed the most?
 
+```{r}
+problem3_data %>%
+  distinct(locationdesc) %>%
+  nrow()
+problem3_data %>%
+  distinct(locationabbr) %>%
+  nrow()
+mode <- function(x) {
+    ux <- unique(x)
+    ux[which.max(tabulate(match(x, ux)))]
+}
+mode(problem3_data$locationabbr)
+```
 
+404 unique locations are included in the dataset. 51 states are represented which means every state is represented. The state "NJ" is observed the most.
+
+## In 2002, what is the median of the “Excellent” response value?
+
+```{r}
+median(problem3_data$excellent, na.rm = TRUE)
+```
+
+In 2002, the median of the “Excellent” response value is 22.
