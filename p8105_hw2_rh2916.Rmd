@@ -14,5 +14,20 @@ library(dplyr)
 library(readxl)
 ```
 
+## Problem 1 
 
+## Read and manipulate Data 
+
+```{r}
+Problem1_data =
+  read_csv(file = './data/NYC_Transit_Subway_Entrance_And_Exit_Data.csv') %>%
+  janitor::clean_names() %>%
+  select(line, station_name, station_latitude, station_longitude, route1: route11, 
+         entry, vending, entrance_type, ada) %>%
+  mutate(
+    entry = recode(entry, "YES" = TRUE, "NO" = FALSE)
+  )
+```
+
+The Problem1_data dataset contains 19 variables, they are line, station_name, station_latitude, station_ongitude, routes1:route11, entry, vending, entrance type and ada. After reading the dataset, I first clean the variable names using clean_names function, then retain the variables I need by select function, and convert the entry variable from character to a logical variable by mutate and recode function. The dimension of the resulting dataset is `r dim(Problem1_data)` (rows x columns). It is not tidy since the route name and route number are messy.
 
