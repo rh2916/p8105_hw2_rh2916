@@ -138,3 +138,10 @@ problem2_data_rbind$month = month.name[problem2_data_rbind$month]
 
 For problem2_data_dumpster, the number of observations is `r nrow(problem2_data_dumpster)`. The key variables are dumpster, date, weight_tons and volume_cubic_yards. By the key variables, we can know the general information of the dumpster. For problem2_data_rbind, the number of observations is `r nrow(problem2_data_rbind)`. The three variables, total, month and year are all key variables to know the general information about the precipitation.
 
+## What was the total precipitation in 2017? 
+
+For available data, the total precipitation in 2017 was `r sum(problem2_data_2017$total)`. 
+
+## What was the median number of sports balls in a dumpster in 2016?
+
+The median number of sports balls in a dumpster in 2016 is `r median(subset(problem2_data_dumpster, year== 2016)$sports_balls) `.
