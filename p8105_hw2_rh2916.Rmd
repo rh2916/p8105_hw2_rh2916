@@ -105,4 +105,28 @@ problem2_data_1 =
   )
 ```
 
+## Read and clean precipitation data for 2016 and 2017. 
+
+```{r}
+problem2_data_2016 = 
+  readxl::read_xlsx("./data/HealthyHarborWaterWheelTotals2017-9-26.xlsx", sheet = 
+                      "2016 Precipitation", range = "A2:B14") %>%
+  janitor::clean_names() %>%
+  filter(!is.na(total)) %>%
+  mutate(
+    year = 2016
+  )
+```
+
+```{r}
+problem2_data_2017 = 
+  readxl::read_xlsx("./data/HealthyHarborWaterWheelTotals2017-9-26.xlsx", sheet = 
+                      "2017 Precipitation", range = "A2:B14") %>%
+  janitor::clean_names() %>%
+  filter(!is.na(total)) %>%
+  mutate(
+    year = 2017
+  )
+```
+
 
