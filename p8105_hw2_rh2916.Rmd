@@ -69,5 +69,25 @@ nrow(Problem1_data_novending_entrance)/nrow(Problem1_data_novending)
 
 43.43% of station entrances / exits without vending allow entrance.
 
+## Reformat route variables.
+
+```{r}
+Problem1_data %>%
+  gather(key = route_number, value = route_name, route1:route11) %>%
+  filter(route_name == "A") %>%
+  distinct(line, station_name) %>%
+  nrow()
+```
+```{r}
+Problem1_data %>%
+  gather(key = route_number, value = route_name, route1:route11) %>%
+  filter(route_name == "A" & ada == TRUE) %>%
+  distinct(line, station_name) %>%
+  nrow()
+```
+
+60 distinct stations serve the A train. 
+Of the stations that serve the A train, 17 stations are ADA compliant.
+
 
 
