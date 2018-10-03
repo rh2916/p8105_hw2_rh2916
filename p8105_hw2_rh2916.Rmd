@@ -31,3 +31,43 @@ Problem1_data =
 
 The Problem1_data dataset contains 19 variables, they are line, station_name, station_latitude, station_ongitude, routes1:route11, entry, vending, entrance type and ada. After reading the dataset, I first clean the variable names using clean_names function, then retain the variables I need by select function, and convert the entry variable from character to a logical variable by mutate and recode function. The dimension of the resulting dataset is `r dim(Problem1_data)` (rows x columns). It is not tidy since the route name and route number are messy.
 
+
+## How many distinct stations are there? 
+
+```{r}
+Problem1_data %>% 
+  distinct(line, station_name) %>% 
+  nrow()
+```
+There are 465 stations.
+
+## How many stations are ADA compliant?
+
+```{r}
+Problem1_data %>% 
+  filter(ada == "TRUE") %>%
+  distinct(line, station_name) %>% 
+  nrow()
+```
+84 stations are ADA compliant.
+
+
+## What proportion of station entrances / exits without vending allow entrance?
+
+
+```{r}
+Problem1_data_novending_entrance =
+  Problem1_data %>% 
+  filter(vending == "NO" & entry == TRUE) %>%
+  distinct(line, station_name)
+Problem1_data_novending = 
+  Problem1_data %>%
+  filter(vending == "NO") %>%
+  distinct(line, station_name) 
+nrow(Problem1_data_novending_entrance)/nrow(Problem1_data_novending)
+```
+
+43.43% of station entrances / exits without vending allow entrance.
+
+
+
