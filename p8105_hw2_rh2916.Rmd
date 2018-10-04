@@ -94,7 +94,7 @@ Of the stations that serve the A train, 17 stations are ADA compliant.
 
 ```{r}
 problem2_data_dumpster = 
-  readxl::read_xlsx("./data/HealthyHarborWaterWheelTotals2017-9-26.xlsx", sheet = "Mr. Trash Wheel", range = "A2:N258") %>%
+  readxl::read_xlsx("./data/HealthyHarborWaterWheelTotals2018-7-28.xlsx", sheet = "Mr. Trash Wheel", range = "A2:N338") %>%
   janitor::clean_names() %>%
   filter(!is.na(dumpster)) %>%
   mutate(
@@ -107,7 +107,7 @@ problem2_data_dumpster =
 
 ```{r}
 problem2_data_2016 = 
-  readxl::read_xlsx("./data/HealthyHarborWaterWheelTotals2017-9-26.xlsx", sheet = 
+  readxl::read_xlsx("./data/HealthyHarborWaterWheelTotals2018-7-28.xlsx", sheet = 
                       "2016 Precipitation", range = "A2:B14") %>%
   janitor::clean_names() %>%
   filter(!is.na(total)) %>%
@@ -118,7 +118,7 @@ problem2_data_2016 =
 
 ```{r}
 problem2_data_2017 = 
-  readxl::read_xlsx("./data/HealthyHarborWaterWheelTotals2017-9-26.xlsx", sheet = 
+  readxl::read_xlsx("./data/HealthyHarborWaterWheelTotals2018-7-28.xlsx", sheet = 
                       "2017 Precipitation", range = "A2:B14") %>%
   janitor::clean_names() %>%
   filter(!is.na(total)) %>%
