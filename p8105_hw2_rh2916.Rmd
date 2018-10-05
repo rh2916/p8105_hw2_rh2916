@@ -195,7 +195,7 @@ problem3_data_2002 = filter(problem3_data, year == 2002)
 median(problem3_data_2002$excellent, na.rm = TRUE)
 ```
 
-In 2002, the median of the “Excellent” response value is 22.
+In 2002, the median of the “Excellent” response value is 23.6.
 
 Make a histogram of “Excellent” response values in the year 2002.
 ```{r}
